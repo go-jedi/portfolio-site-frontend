@@ -1,11 +1,14 @@
 import React from 'react';
+import Link from 'next/link';
 
 import styles from "@/components/Footer/Trademark/Trademark.module.scss"
 
 const Trademark: React.FC = () => {
     return (
-        <div className={styles.text}>
-            © Conor Dewey
+        <div>
+            <Link className={styles.link} href={'/about'}>
+                © Conor Dewey
+            </Link>
         </div>
     )
 }
