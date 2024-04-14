@@ -41,7 +41,7 @@ const Navigate: React.FC = () => {
                         className={styles.link}
                         style={{color: pathname === e.link ? '#4385d7' : ''}}
                         key={e.id}
-                        href={`/${e.link}`}
+                        href={`${e.link}`}
                     >
                         <div>{e.name}</div>
                     </Link>

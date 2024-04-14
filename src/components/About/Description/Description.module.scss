@@ -1,0 +1,12 @@
+.description {
+  margin-top: 25px;
+  line-height: 32px;
+}
+
+.text {
+  font-size: 19px;
+}
+
+.text:not(:first-child) {
+  margin-top: 10px;
+}

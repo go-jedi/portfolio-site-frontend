@@ -1,0 +1,33 @@
+.navigate {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.link:not(:first-child) {
+  margin-left: 25px;
+}
+
+.icon {
+  font-size: 30px;
+}
+
+.icon:not(:first-child) {
+  margin-left: 10px;
+}
+
+.text {
+  margin-left: 5px;
+  font-size: 18px;
+  color: #d4d4d4;
+}
+
+.text:hover {
+  color: #fff;
+}
