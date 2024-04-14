@@ -1,6 +1,8 @@
 import React from "react";
-import type {Metadata} from "next";
 import {Lato} from "next/font/google";
+import { ReduxProvider } from '@/redux/provider';
+
+import type {Metadata} from "next";
 
 import '@/scss/globals.scss';
 
@@ -24,10 +26,12 @@ const RootLayout = ({children}: { children: React.ReactNode }) => {
     return (
         <html lang="en">
             <body className={lato.className}>
-            <div className={styles.container}>
-                <Header/>
-                {children}
-            </div>
+            <ReduxProvider>
+                <div className={styles.container}>
+                    <Header/>
+                    {children}
+                </div>
+            </ReduxProvider>
             </body>
         </html>
     );
