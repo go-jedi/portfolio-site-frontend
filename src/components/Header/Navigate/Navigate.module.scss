@@ -1,0 +1,18 @@
+.navigate {
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #a8adb2;
+}
+
+.link:not(:first-child) {
+  margin-left: 22px;
+}
+
+.link:hover{
+  color: #4385d7;
+}
