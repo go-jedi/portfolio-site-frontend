@@ -15,24 +15,32 @@ type ListType = {
 const list: ListType[] = [
     {
         id: 1,
-        name: "Языки программирования: Golang, Python, JavaScript",
+        name: "Язык программирования: Golang, Python, JavaScript",
     },
     {
         id: 2,
-        name: "Frontend Фреймворки: ReactJS, NextJS, Quasar, VueJS, Django",
+        name: "Frontend Фреймворк: ReactJS, NextJS, Quasar, VueJS, Django",
     },
     {
         id: 3,
-        name: "Backend Фреймворки: Django, Fast API, Gin, Echo, Fiber, NestJS",
+        name: "Backend Фреймворк: Django, Fast API, Gin, Echo, Fiber, NestJS",
     },
     {
         id: 4,
-        name: "Базы данных: PostgreSQL, MongoDB, MySQL, SQLite",
+        name: "База данных: PostgreSQL, MongoDB, MySQL, SQLite",
     },
     {
         id: 5,
         name: "Контейнеризация: Docker, k8s",
     },
+    {
+        id: 6,
+        name: "Архитектура: REST API, gRPC"
+    },
+    {
+        id: 7,
+        name: "Методология: Agile, Scrum"
+    }
 ]
 
 const Technology: React.FC = () => {
