@@ -1,0 +1,10 @@
+.block {
+  width: 100%;
+  margin: 15px auto;
+  min-height: 150px;
+  border-radius: 20px;
+
+  &:not(:first-child) {
+    margin-top: 35px;
+  }
+}

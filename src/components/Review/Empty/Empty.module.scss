@@ -1,0 +1,20 @@
+.empty {
+  position: absolute;
+  top: 20%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.icon {
+}
+
+.description {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
+}

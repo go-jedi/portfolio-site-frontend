@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation'
+import {usePathname} from 'next/navigation'
 
 import styles from "@/components/Header/Navigate/Navigate.module.scss"
 
@@ -25,6 +25,11 @@ const links: LinksType[] = [
     },
     {
         id: 3,
+        name: 'Отзывы',
+        link: "/review"
+    },
+    {
+        id: 4,
         name: 'О нас',
         link: "/about"
     }

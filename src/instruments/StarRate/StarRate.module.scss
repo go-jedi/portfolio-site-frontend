@@ -1,0 +1,15 @@
+.rate {
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  opacity: 0;
+}
+
+.icon {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  transition: color 200ms;
+}
