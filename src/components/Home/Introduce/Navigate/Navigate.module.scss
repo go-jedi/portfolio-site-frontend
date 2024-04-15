@@ -1,12 +1,16 @@
 .navigate {
   display: flex;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .link {
   display: flex;
   align-items: center;
+  color: #a8adb2;
+}
+
+.link:hover {
   color: #fff;
 }
 
@@ -25,9 +29,4 @@
 .text {
   margin-left: 5px;
   font-size: 18px;
-  color: #d4d4d4;
-}
-
-.text:hover {
-  color: #fff;
 }

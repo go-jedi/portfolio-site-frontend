@@ -6,6 +6,7 @@ import Description from "@/components/About/Description/Description";
 import Service from "@/components/About/Service/Service";
 import Technology from "@/components/About/Technology/Technology";
 import Why from "@/components/About/Why/Why"
+import Contact from "@/components/About/Contact/Contact";
 
 const About: React.FC = () => {
     return (
@@ -15,6 +16,7 @@ const About: React.FC = () => {
             <Service/>
             <Technology/>
             <Why/>
+            <Contact/>
         </div>
     )
 }
