@@ -78,22 +78,22 @@ const Review: React.FC = () => {
 
     if (reviews.length === 0) {
         return (
-            <>
+            <div className={styles.review}>
                 <div className={styles.title}>Отзывы</div>
                 <Form/>
                 <Empty/>
-            </>
+            </div>
         );
     }
 
     return (
-        <>
+        <div className={styles.review}>
             <div className={styles.title}>Отзывы</div>
             <Form/>
             {reviews.map((e: ReviewsType) => {
                 return <Block key={e.id} {...e} />;
             })}
-        </>
+        </div>
     );
 }
 

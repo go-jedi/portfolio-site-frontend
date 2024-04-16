@@ -1,52 +1,43 @@
 import React from "react";
 
-import styles from "@/components/Portfolio/Portfolio.module.scss"
+import styles from "@/components/Portfolio/Portfolio.module.scss";
 
-import Empty from "@/components/Portfolio/Empty/Empty"
+import Empty from "@/components/Portfolio/Empty/Empty";
+import Block from "@/components/Portfolio/Block/Block";
 
 type ProjectType = {
     id: number;
     title: string;
     description: string;
-    img: string[];
+    img: string;
     created: string;
+    technology: string;
 }
 
 const projects: ProjectType[] = [
     {
         id: 1,
-        title: 'Assassin`s Creed Mirage',
+        title: 'Одностраничник (Langing Page)',
         description: 'Сегодня состоялся долгожданной релиз Assassin`s Creed Mirage',
-        img: ['https://www.dexerto.com/cdn-cgi/image/width=3840,quality=75,format=auto/https://editors.dexerto.com/wp-content/uploads/2022/09/11/assassins-creed-mirage-real-gambling-ubisoft-forward-reveal.jpg'],
+        img: 'https://tanix.by/upload/%D0%91%D0%9B%D0%9E%D0%93.%20%D0%A1%D0%A2%D0%90%D0%A2%D0%AC%D0%98/landing-page_mesa_de_trabajo_1_0.png',
         created: '05.10.23',
+        technology: "Golang + Fiber + PostgreSQL + Docker + migrations Goose + air"
     },
     {
         id: 2,
-        title: 'Assassin`s Creed Mirage',
+        title: 'Сайт (Miro)',
         description: 'Сегодня состоялся долгожданной релиз Assassin`s Creed Mirage',
-        img: ['https://www.dexerto.com/cdn-cgi/image/width=3840,quality=75,format=auto/https://editors.dexerto.com/wp-content/uploads/2022/09/11/assassins-creed-mirage-real-gambling-ubisoft-forward-reveal.jpg'],
+        img: 'https://aspro.ru/upload/iblock/54e/1.jpg',
         created: '05.10.23',
+        technology: "Python",
     },
     {
         id: 3,
-        title: 'Assassin`s Creed Mirage',
+        title: 'Телеграм бот (Tele bot)',
         description: 'Сегодня состоялся долгожданной релиз Assassin`s Creed Mirage',
-        img: ['https://www.dexerto.com/cdn-cgi/image/width=3840,quality=75,format=auto/https://editors.dexerto.com/wp-content/uploads/2022/09/11/assassins-creed-mirage-real-gambling-ubisoft-forward-reveal.jpg'],
+        img: 'https://adminvps.ru/blog/wp-content/uploads/2020/07/pvylr1rn9ri2-3.jpeg',
         created: '05.10.23',
-    },
-    {
-        id: 4,
-        title: 'Assassin`s Creed Mirage',
-        description: 'Сегодня состоялся долгожданной релиз Assassin`s Creed Mirage',
-        img: ['https://www.dexerto.com/cdn-cgi/image/width=3840,quality=75,format=auto/https://editors.dexerto.com/wp-content/uploads/2022/09/11/assassins-creed-mirage-real-gambling-ubisoft-forward-reveal.jpg'],
-        created: '05.10.23',
-    },
-    {
-        id: 5,
-        title: 'Assassin`s Creed Mirage',
-        description: 'Сегодня состоялся долгожданной релиз Assassin`s Creed Mirage',
-        img: ['https://www.dexerto.com/cdn-cgi/image/width=3840,quality=75,format=auto/https://editors.dexerto.com/wp-content/uploads/2022/09/11/assassins-creed-mirage-real-gambling-ubisoft-forward-reveal.jpg'],
-        created: '05.10.23',
+        technology: "JavaScript",
     },
 ]
 
@@ -62,6 +53,11 @@ const Portfolio: React.FC = () => {
     return (
         <div className={styles.portfolio}>
             <div className={styles.title}>Портфолио</div>
+            <div className={styles.project}>
+                {projects.map((e: ProjectType) => {
+                    return <Block key={e.id} {...e}/>
+                })}
+            </div>
         </div>
     )
 }
