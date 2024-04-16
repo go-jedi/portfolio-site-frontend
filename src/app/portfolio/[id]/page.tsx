@@ -1,13 +1,15 @@
 import React from "react";
 
-import PortfolioId from "@/components/PortfolioId/PortfolioId";
+import PortfolioId from "@/components/Portfolio/[id]";
 
 const PortfolioIdPage = ({params}: { params: { id: string } }) => {
     console.log("params: ", params)
 
     return (
         <div>
-            <PortfolioId/>
+            <PortfolioId
+                id={params.id}
+            />
         </div>
     )
 }

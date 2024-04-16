@@ -25,7 +25,7 @@ const Form: React.FC = () => {
                     <>
                         <div className={styles.block}>
                             <div className={styles.row}>
-                                <input className={styles.input} type="text" placeholder="E-mail"/>
+                                <input className={styles.input} type="text" placeholder="Имя"/>
                             </div>
                             <div className={styles.row}>
                                 <StarRate rating={rating} onSetRate={(e: number) => setRating(e)}/>

@@ -1,0 +1,23 @@
+.list {
+  margin-top: 25px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #4385d7;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+.images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  grid-gap: 10px;
+  margin-top: 10px;
+}
