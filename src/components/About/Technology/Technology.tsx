@@ -4,6 +4,8 @@ import {FaGolang} from "react-icons/fa6";
 import {FaDocker, FaPython, FaReact} from "react-icons/fa";
 import {IoLogoJavascript, IoLogoVue} from "react-icons/io5";
 import {TbBrandNextjs} from "react-icons/tb";
+import {DiRedis} from "react-icons/di";
+
 
 import styles from "@/components/About/Technology/Technology.module.scss"
 
@@ -35,10 +37,14 @@ const list: ListType[] = [
     },
     {
         id: 6,
-        name: "Архитектура: REST API, gRPC"
+        name: "Кэширование: Redis",
     },
     {
         id: 7,
+        name: "Архитектура: REST API, gRPC"
+    },
+    {
+        id: 8,
         name: "Методология: Agile, Scrum"
     }
 ]
@@ -54,6 +60,7 @@ const Technology: React.FC = () => {
                 <FaReact className={styles.icon}/>
                 <IoLogoVue className={styles.icon}/>
                 <TbBrandNextjs className={styles.icon}/>
+                <DiRedis className={styles.icon}/>
                 Технологический стек:
             </div>
             <div className={styles.list}>

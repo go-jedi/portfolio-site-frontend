@@ -2,7 +2,7 @@ import React from 'react';
 
 import {GiEmptyWoodBucket} from "react-icons/gi";
 
-import styles from "@/components/Review/Empty/Empty.module.scss"
+import styles from "@/components/Portfolio/Empty/Empty.module.scss";
 
 const Empty: React.FC = () => {
     return (
@@ -10,7 +10,7 @@ const Empty: React.FC = () => {
             <GiEmptyWoodBucket className={styles.icon}/>
             <div className={styles.description}>Пусто</div>
         </div>
-    )
+    );
 }
 
 export default Empty;
