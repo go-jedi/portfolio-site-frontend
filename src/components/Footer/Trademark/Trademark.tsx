@@ -7,7 +7,7 @@ const Trademark: React.FC = () => {
     return (
         <div>
             <Link className={styles.link} href={'/about'}>
-                © Conor Dewey
+                © Code Wave
             </Link>
         </div>
     )

@@ -10,7 +10,7 @@ const Info: React.FC = () => {
                 className={styles.link}
                 href={'/about'}
             >
-                Привет, это (Название).
+                Привет, это Code Wave.
             </Link>
             Наша студия программирования занимается разработкой приложений.
         </div>

@@ -14,3 +14,12 @@
 .text {
   font-size: 19px;
 }
+
+.link {
+  color: #fff;
+  font-weight: 700;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
