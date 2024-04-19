@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   margin: 15px auto;
+  width: 100%;
   padding: 25px;
   min-height: 150px;
   background: #fff;
@@ -46,6 +47,7 @@
 .about {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .rate {
