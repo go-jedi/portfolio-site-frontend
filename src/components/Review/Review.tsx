@@ -6,6 +6,7 @@ import styles from "@/components/Review/Review.module.scss";
 import Form from "@/components/Review/Form/Form";
 import Block from "@/components/Review/Block/Block";
 import Empty from "@/components/Review/Empty/Empty";
+import Pagination from "@/instruments/Pagination/Pagination"
 
 type ReviewsType = {
     id: number;
@@ -54,6 +55,17 @@ const reviews: ReviewsType[] = [
 ];
 
 const Review: React.FC = () => {
+    const [currentPage, setCurrentPage] = React.useState(1)
+
+    const onChangePage = (page: number) => {
+        try {
+            console.log("page:", page)
+            setCurrentPage((prevState: number) => prevState + 1)
+        } catch (error) {
+            console.log("error in onChangePage:", error)
+        }
+    }
+
     React.useEffect(() => {
         window.scrollTo({
             top: 0,
@@ -79,6 +91,12 @@ const Review: React.FC = () => {
             {reviews.map((e: ReviewsType) => {
                 return <Block key={e.id} {...e} />;
             })}
+            <div>
+                <Pagination
+                    currentPage={currentPage}
+                    onChangePage={onChangePage}
+                />
+            </div>
         </div>
     );
 }
