@@ -1,6 +1,8 @@
 'use client';
 import React from "react";
 
+import {useAppDispatch} from '@/redux/store';
+
 import styles from "@/components/Review/Review.module.scss";
 
 import Form from "@/components/Review/Form/Form";
@@ -55,6 +57,8 @@ const reviews: ReviewsType[] = [
 ];
 
 const Review: React.FC = () => {
+    const dispatch = useAppDispatch()
+
     const [currentPage, setCurrentPage] = React.useState(1)
 
     const onChangePage = (page: number) => {
