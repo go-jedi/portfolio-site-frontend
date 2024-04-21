@@ -2,7 +2,8 @@ import {createSlice} from '@reduxjs/toolkit';
 
 import {ReviewSliceState, Status} from "@/redux/review/types"
 
-import {fetchCreate, fetchGet} from "@/redux/review/asyncActions"
+import {fetchCreate} from "@/redux/review/asyncActions/create"
+import {fetchGet} from "@/redux/review/asyncActions/get"
 
 const initialState: ReviewSliceState = {
     reviews: [],
