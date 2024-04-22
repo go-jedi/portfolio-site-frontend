@@ -1,9 +1,11 @@
+"use client";
 import React from "react";
 
 import styles from "@/components/Portfolio/Portfolio.module.scss";
 
 import Empty from "@/components/Portfolio/Empty/Empty";
 import Block from "@/components/Portfolio/Block/Block";
+import Pagination from "@/instruments/Pagination/Pagination"
 
 type ProjectType = {
     id: number;
@@ -42,6 +44,17 @@ const projects: ProjectType[] = [
 ]
 
 const Portfolio: React.FC = () => {
+    const [currentPage, setCurrentPage] = React.useState(1)
+
+    const onChangePage = (page: number) => {
+        try {
+            console.log("page:", page)
+            setCurrentPage((prevState: number) => prevState + 1)
+        } catch (error) {
+            console.log("error in onChangePage:", error)
+        }
+    }
+
     if (projects.length === 0) {
         return (
             <>
@@ -57,6 +70,12 @@ const Portfolio: React.FC = () => {
                 {projects.map((e: ProjectType) => {
                     return <Block key={e.id} {...e}/>
                 })}
+            </div>
+            <div className={styles.pagination}>
+                <Pagination
+                    currentPage={currentPage}
+                    onChangePage={onChangePage}
+                />
             </div>
         </div>
     )

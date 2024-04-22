@@ -95,7 +95,7 @@ const Review: React.FC = () => {
             {reviews.map((e: ReviewsType) => {
                 return <Block key={e.id} {...e} />;
             })}
-            <div>
+            <div className={styles.pagination}>
                 <Pagination
                     currentPage={currentPage}
                     onChangePage={onChangePage}
