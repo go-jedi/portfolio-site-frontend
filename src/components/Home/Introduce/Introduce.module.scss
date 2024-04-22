@@ -1,17 +1,10 @@
 .introduce {
   display: flex;
   align-items: center;
-  margin: 65px 0 80px;
 }
 
 .information {
   margin-left: 40px;
-}
-
-@media (max-width: 1200px) {
-  .introduce {
-    margin: 65px 0;
-  }
 }
 
 @media (max-width: 1024px) {
@@ -24,17 +17,5 @@
   .introduce {
     flex-direction: column;
     align-items: start;
-  }
-}
-
-@media (max-width: 667px) {
-  .introduce {
-    margin: 45px 0;
-  }
-}
-
-@media (max-width: 428px) {
-  .introduce {
-    margin: 35px 0;
   }
 }

@@ -10,3 +10,31 @@
 .text:not(:first-child) {
   margin-top: 10px;
 }
+
+@media (max-width: 1200px) {
+  .text {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .description {
+    line-height: 27px;
+  }
+
+  .text {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 667px) {
+  .text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .text {
+    font-size: 12px;
+  }
+}

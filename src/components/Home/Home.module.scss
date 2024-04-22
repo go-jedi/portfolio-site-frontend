@@ -1,0 +1,15 @@
+.home {
+  margin: 65px 0 80px;
+}
+
+@media (max-width: 667px) {
+  .home {
+    margin: 45px 0;
+  }
+}
+
+@media (max-width: 428px) {
+  .home {
+    margin: 35px 0;
+  }
+}
