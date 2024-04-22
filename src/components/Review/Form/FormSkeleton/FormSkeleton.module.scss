@@ -26,3 +26,60 @@
   border: 3.5px solid rgba(99, 96, 96, 0.15);
   border-radius: 7px;
 }
+
+@media (max-width: 1200px) {
+  .input {
+    width: 229px;
+    height: 29px;
+  }
+
+  .rate {
+    width: 205px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .rate {
+    width: 195px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 667px) {
+  .input {
+    width: 145px;
+    height: 29px;
+  }
+
+  .rate {
+    width: 185px;
+    height: 26px;
+  }
+}
+
+@media (max-width: 428px) {
+  .input {
+    width: 125px;
+  }
+
+  .rate {
+    width: 175px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 360px) {
+  .input {
+    width: 105px;
+  }
+
+  .rate {
+    width: 165px;
+    height: 22px;
+  }
+
+  .textarea {
+    height: 150px;
+  }
+}

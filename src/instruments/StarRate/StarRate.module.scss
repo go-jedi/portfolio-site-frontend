@@ -13,3 +13,38 @@
   height: 30px;
   transition: color 200ms;
 }
+
+@media (max-width: 1280px) {
+  .icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .icon {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+@media (max-width: 667px) {
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 428px) {
+  .icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 360px) {
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+}
