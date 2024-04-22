@@ -13,6 +13,28 @@
   margin-left: 22px;
 }
 
-.link:hover{
+.link:hover {
   color: #4385d7;
+}
+
+@media (max-width: 1200px) {
+  .link {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .link {
+    font-size: 12px;
+  }
+
+  .link:not(:first-child) {
+    margin-left: 16px;
+  }
+}
+
+@media (max-width: 992px) {
+  .navigate {
+    display: none;
+  }
 }

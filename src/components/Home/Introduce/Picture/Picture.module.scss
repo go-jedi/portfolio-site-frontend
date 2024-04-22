@@ -4,6 +4,12 @@
   justify-content: center;
   width: 140px;
   height: 140px;
-  background-color: #fff;
   border-radius: 50%;
+}
+
+@media (max-width: 1200px) {
+  .img {
+    width: 130px;
+    height: 130px;
+  }
 }

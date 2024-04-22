@@ -6,3 +6,28 @@
   font-size: 19px;
   line-height: 32px;
 }
+
+@media(max-width: 1200px) {
+  .text {
+    font-size: 17px;
+  }
+}
+
+@media(max-width: 1024px) {
+  .text {
+    font-size: 15px;
+    line-height: 27px;
+  }
+}
+
+@media(max-width: 667px) {
+  .text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .text {
+    font-size: 12px;
+  }
+}

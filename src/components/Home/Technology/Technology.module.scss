@@ -11,13 +11,13 @@
 .list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+  grid-gap: 22px;
   margin-top: 10px;
 }
 
 .card {
   cursor: pointer;
-  width: 250px;
+  width: 100%;
   transition-duration: 1s;
 
   &:hover {
@@ -54,4 +54,59 @@
 
 .link:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 1200px) {
+  .title {
+    font-size: 20px;
+  }
+
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .text {
+    font-size: 12px;
+  }
+
+  .icon {
+    font-size: 26px;
+  }
+
+  .link {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 667px) {
+  .title {
+    font-size: 16px;
+  }
+
+  .list {
+    grid-gap: 18px;
+  }
+}
+
+@media (max-width: 428px) {
+  .list {
+    grid-gap: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .title {
+    font-size: 14px;
+  }
+
+  .list {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 12px;
+  }
 }

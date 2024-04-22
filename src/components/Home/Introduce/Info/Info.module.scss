@@ -14,3 +14,27 @@
 .link:hover {
   color: #4385d7;
 }
+
+@media (max-width: 1200px) {
+  .info {
+    font-size: 23px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .info {
+    font-size: 21px;
+  }
+}
+
+@media (max-width: 667px) {
+  .info {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 360px) {
+  .info {
+    font-size: 17px;
+  }
+}
