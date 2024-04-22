@@ -1,0 +1,40 @@
+.menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  z-index: 1000;
+  background-color: #fff;
+}
+
+.link {
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.link:hover {
+  color: #4385d7;
+}
+
+.item:not(:first-child) {
+  margin-top: 40px;
+}
+
+@media (max-width: 428px) {
+  .link {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 320px) {
+  .link {
+    font-size: 16px;
+  }
+}

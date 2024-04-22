@@ -4,6 +4,7 @@ import styles from '@/components/Header/Header.module.scss';
 
 import Logo from '@/components/Header/Logo/Logo';
 import Navigate from "@/components/Header/Navigate/Navigate";
+import Hamburger from "@/components/Header/Hamburger/Hamburger";
 
 const Header: React.FC = () => {
     return (
@@ -13,6 +14,7 @@ const Header: React.FC = () => {
             </div>
             <div className={styles.header__right}>
                 <Navigate/>
+                <Hamburger/>
             </div>
         </div>
     )
