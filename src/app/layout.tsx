@@ -18,9 +18,9 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-    title: 'YouPlay',
+    title: 'Code Wave',
     description:
-        'Игровой магазин GamesRent',
+        'Студия программирования Code Wave',
 };
 
 const RootLayout = ({children}: { children: React.ReactNode }) => {
