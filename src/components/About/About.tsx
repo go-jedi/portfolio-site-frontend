@@ -11,7 +11,7 @@ import Contact from "@/components/About/Contact/Contact";
 const About: React.FC = () => {
     return (
         <div className={styles.about}>
-            <div className={styles.title}>Привет, это (Название) 👋🏼</div>
+            <div className={styles.title}>Привет, это Code Wave 👋🏼</div>
             <Description/>
             <Service/>
             <Technology/>

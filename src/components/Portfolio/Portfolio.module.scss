@@ -19,3 +19,37 @@
 .pagination {
   margin-top: 15px;
 }
+
+@media (max-width: 1200px) {
+  .title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 667px) {
+  .portfolio {
+    margin: 45px 0;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 428px) {
+  .portfolio {
+    margin: 35px 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .title {
+    font-size: 22px;
+  }
+}
