@@ -9,3 +9,47 @@
   color: #fff;
   text-align: left;
 }
+
+@media (max-width: 1200px) {
+  .title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 667px) {
+  .portfolioid {
+    margin: 45px 0;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 428px) {
+  .portfolioid {
+    margin: 35px 0;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 360px) {
+  .title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 320px) {
+  .title {
+    font-size: 18px;
+  }
+}
