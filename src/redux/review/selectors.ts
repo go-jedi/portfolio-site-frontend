@@ -1,3 +1,3 @@
 import {RootState} from '@/redux/store';
 
-export const selectReviewData = (state: RootState) => state.review;
+export const selectorReview = (state: RootState) => state.review;

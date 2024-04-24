@@ -1,6 +1,8 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
-import {ReviewSliceState, Status} from "@/redux/review/types"
+import {DateTime} from "luxon";
+
+import {FetchGetResponse, Review, ReviewSliceState, Status} from "@/redux/review/types"
 
 import {fetchCreate} from "@/redux/review/asyncActions/create"
 import {fetchGet} from "@/redux/review/asyncActions/get"
@@ -35,8 +37,14 @@ const reviewSlice = createSlice({
             state.reviews = [];
         });
 
-        builder.addCase(fetchGet.fulfilled, (state, action) => {
-            state.reviews = action.payload.result
+        builder.addCase(fetchGet.fulfilled, (state, action: PayloadAction<FetchGetResponse>) => {
+            console.log("action.payload:", action.payload)
+            state.reviews = action.payload.result.filter((e: Review) => {
+                e.created_at = DateTime.fromISO(e.created_at).toFormat("dd-MM-yyyy HH:mm")
+                e.updated_at = DateTime.fromISO(e.updated_at).toFormat("dd-MM-yyyy HH:mm")
+
+                return e;
+            })
             state.status = Status.SUCCESS;
         });
 

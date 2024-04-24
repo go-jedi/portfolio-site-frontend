@@ -1,6 +1,6 @@
-type Review = {
+export type Review = {
     id: number;
-    author: string;
+    username: string;
     message: string;
     rating: number;
     created_at: string;
@@ -19,7 +19,7 @@ export interface ReviewSliceState {
 }
 
 export type FetchCreateDto = {
-    author: string;
+    username: string;
     message: string;
     rating: number;
 }

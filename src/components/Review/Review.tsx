@@ -2,6 +2,9 @@
 import React from "react";
 
 import {useAppDispatch} from '@/redux/store';
+import {useSelector} from 'react-redux';
+import {fetchGet} from "@/redux/review/asyncActions/get";
+import {selectorReview} from "@/redux/review/selectors";
 
 import styles from "@/components/Review/Review.module.scss";
 
@@ -13,51 +16,15 @@ import Pagination from "@/instruments/Pagination/Pagination"
 type ReviewsType = {
     id: number;
     username: string;
-    text: string;
-    created: string;
-    rate: number;
+    message: string;
+    rating: number;
+    created_at: string;
+    updated_at: string;
 };
-
-const reviews: ReviewsType[] = [
-    {
-        id: 1,
-        username: 'Vasya',
-        text: 'Отлично все работает, без обмана. Сомневался, т.к. все выглядело как-то недорого и просто. Но решил, что сумма небольшая, чтобы рискнуть) Уже купил 2 акка - ремейк резидента 4, и атомик харт. Все отлично работает, поддержка на сайте оперативная. Все длс в комплекте, круто. Играю со стимдека - с пиратками возиться лень, а лицухи за фулпрайс позволить не могу. И ждать распродаж по приемлемой для себя цене 2 года тоже не хочется))',
-        created: '15.11.2023 17:40',
-        rate: 5,
-    },
-    {
-        id: 2,
-        username: 'Sanya',
-        text: 'Отлично все работает, без обмана. Сомневался, т.к. все выглядело как-то недорого и просто. Но решил, что сумма небольшая, чтобы рискнуть) Уже купил 2 акка - ремейк резидента 4, и атомик харт. Все отлично работает, поддержка на сайте оперативная. Все длс в комплекте, круто. Играю со стимдека - с пиратками возиться лень, а лицухи за фулпрайс позволить не могу. И ждать распродаж по приемлемой для себя цене 2 года тоже не хочется))',
-        created: '15.11.2023 17:40',
-        rate: 3,
-    },
-    {
-        id: 3,
-        username: 'Marina',
-        text: 'Отлично все работает, без обмана. Сомневался, т.к. все выглядело как-то недорого и просто. Но решил, что сумма небольшая, чтобы рискнуть) Уже купил 2 акка - ремейк резидента 4, и атомик харт. Все отлично работает, поддержка на сайте оперативная. Все длс в комплекте, круто. Играю со стимдека - с пиратками возиться лень, а лицухи за фулпрайс позволить не могу. И ждать распродаж по приемлемой для себя цене 2 года тоже не хочется))',
-        created: '15.11.2023 17:40',
-        rate: 1,
-    },
-    {
-        id: 4,
-        username: 'Vitaliy',
-        text: 'Отлично все работает, без обмана. Сомневался, т.к. все выглядело как-то недорого и просто. Но решил, что сумма небольшая, чтобы рискнуть) Уже купил 2 акка - ремейк резидента 4, и атомик харт. Все отлично работает, поддержка на сайте оперативная. Все длс в комплекте, круто. Играю со стимдека - с пиратками возиться лень, а лицухи за фулпрайс позволить не могу. И ждать распродаж по приемлемой для себя цене 2 года тоже не хочется))',
-        created: '15.11.2023 17:40',
-        rate: 2,
-    },
-    {
-        id: 5,
-        username: 'Vladislav',
-        text: 'Крутой сервис. Благодарю',
-        created: '15.11.2023 17:40',
-        rate: 5,
-    },
-];
 
 const Review: React.FC = () => {
     const dispatch = useAppDispatch()
+    const {reviews, status} = useSelector(selectorReview)
 
     const [currentPage, setCurrentPage] = React.useState(1)
 
@@ -71,6 +38,12 @@ const Review: React.FC = () => {
     }
 
     React.useEffect(() => {
+        const formData = {
+            page: 1,
+            limit: 5,
+        }
+        dispatch(fetchGet(formData))
+
         window.scrollTo({
             top: 0,
             left: 0,
@@ -78,7 +51,7 @@ const Review: React.FC = () => {
         });
     }, []);
 
-    if (reviews.length === 0) {
+    if (reviews.length === 0 && status === "completed") {
         return (
             <div className={styles.review}>
                 <div className={styles.title}>Отзывы</div>
