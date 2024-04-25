@@ -7,6 +7,11 @@ export type Review = {
     updated_at: string;
 }
 
+export type Params = {
+    page_count: number;
+    limit: number;
+}
+
 export enum Status {
     LOADING = 'loading',
     SUCCESS = 'completed',
@@ -14,8 +19,9 @@ export enum Status {
 }
 
 export interface ReviewSliceState {
-    reviews: Review[];
     status: Status;
+    reviews: Review[];
+    params: Params;
 }
 
 export type FetchCreateDto = {
@@ -37,4 +43,5 @@ export type FetchGetDto = {
 export type FetchGetResponse = {
     message: string;
     result: Review[];
+    params: Params;
 }

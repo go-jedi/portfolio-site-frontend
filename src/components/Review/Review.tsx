@@ -24,7 +24,7 @@ type ReviewsType = {
 
 const Review: React.FC = () => {
     const dispatch = useAppDispatch()
-    const {reviews, status} = useSelector(selectorReview)
+    const {status, reviews, params} = useSelector(selectorReview)
 
     const [currentPage, setCurrentPage] = React.useState(1)
 
@@ -71,7 +71,8 @@ const Review: React.FC = () => {
             })}
             <div className={styles.pagination}>
                 <Pagination
-                    currentPage={currentPage}
+                    pageCount={params.page_count}
+                    limit={params.limit}
                     onChangePage={onChangePage}
                 />
             </div>
