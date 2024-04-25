@@ -30,26 +30,27 @@ const Review: React.FC = () => {
 
     const onChangePage = (page: number) => {
         try {
-            console.log("page:", page)
-            setCurrentPage((prevState: number) => prevState + 1)
+            setCurrentPage(page)
         } catch (error) {
             console.log("error in onChangePage:", error)
         }
     }
 
     React.useEffect(() => {
-        const formData = {
-            page: 1,
-            limit: 5,
-        }
-        dispatch(fetchGet(formData))
-
         window.scrollTo({
             top: 0,
             left: 0,
             behavior: 'smooth',
         });
     }, []);
+
+    React.useEffect(() => {
+        const formData = {
+            page: currentPage,
+            limit: 5,
+        }
+        dispatch(fetchGet(formData))
+    }, [currentPage])
 
     if (reviews.length === 0 && status === "completed") {
         return (

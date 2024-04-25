@@ -19,17 +19,15 @@ const reviewSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(fetchCreate.pending, (state, action) => {
             state.status = Status.LOADING;
-            // state.items = [];
         });
 
         builder.addCase(fetchCreate.fulfilled, (state, action) => {
-            // state.items = action.payload;
+            console.log("action.payload:", action.payload)
             state.status = Status.SUCCESS;
         });
 
         builder.addCase(fetchCreate.rejected, (state, action) => {
             state.status = Status.ERROR;
-            // state.items = [];
         });
 
         builder.addCase(fetchGet.pending, (state) => {
