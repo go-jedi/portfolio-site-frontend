@@ -1,19 +1,17 @@
 import React from "react";
 
+import {useSelector} from 'react-redux';
+import {selectorProject} from "@/redux/project/selectors";
+import {ImageType} from "@/redux/project/types";
+
 import {Image} from 'antd';
 import {CiImageOn} from "react-icons/ci";
 
 import styles from "@/components/Portfolio/[id]/ImageList/ImageList.module.scss";
 
-const images: string[] = [
-    'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-    'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-    'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-    'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-    'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-]
-
 const ImageList: React.FC = () => {
+    const {project} = useSelector(selectorProject)
+
     return (
         <div className={styles.list}>
             <div className={styles.title}>
@@ -23,12 +21,12 @@ const ImageList: React.FC = () => {
                 Изображения:
             </div>
             <div className={styles.images}>
-                {images.map((e: string, index: number) => {
+                {project.paths.map((e: ImageType) => {
                     return <Image
-                        key={index + 1}
+                        key={e.id}
                         width={220}
                         height={220}
-                        src={e}
+                        src={`${process.env.NEXT_PUBLIC_API_URL}file-server/${e.filename}`}
                         alt={'image'}
                     />
                 })}

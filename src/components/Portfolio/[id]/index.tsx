@@ -1,6 +1,11 @@
 "use client";
 import React from "react";
 
+import {useAppDispatch} from '@/redux/store';
+import {useSelector} from 'react-redux';
+import {selectorProject} from "@/redux/project/selectors";
+import {fetchGetByID} from "@/redux/project/asyncActions/getByID";
+
 import styles from "@/components/Portfolio/[id]/index.module.scss";
 
 import Back from "@/components/Portfolio/[id]/Back/Back";
@@ -18,9 +23,16 @@ type PropsType = {
 }
 
 const PortfolioId: React.FC<PropsType> = (props: PropsType) => {
+    const dispatch = useAppDispatch()
+    const {status, project} = useSelector(selectorProject)
+
     const [isLoading, setIsLoading] = React.useState<boolean>(false)
 
-    if (isLoading) {
+    React.useEffect(() => {
+        dispatch(fetchGetByID(Number(props.id)))
+    }, [])
+
+    if (status === "loading") {
         return (
             <div className={styles.portfolioid}>
                 <BackSkeleton/>
@@ -35,7 +47,7 @@ const PortfolioId: React.FC<PropsType> = (props: PropsType) => {
     return (
         <div className={styles.portfolioid}>
             <Back/>
-            <div className={styles.title}>Одностраничник (Langing Page)</div>
+            <div className={styles.title}>{project.title}</div>
             <Description/>
             <Technology/>
             <ImageList/>

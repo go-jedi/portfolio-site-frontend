@@ -2,22 +2,15 @@
 import React from "react";
 import Link from 'next/link';
 
+import {ProjectType} from "@/redux/project/types";
+
 import {useInView} from 'react-intersection-observer';
 
 import styles from "@/components/Portfolio/Block/Block.module.scss";
 
 import BlockSkeleton from "@/components/Portfolio/Block/BlockSkeleton/BlockSkeleton";
 
-type PropsType = {
-    id: number;
-    title: string;
-    description: string;
-    img: string;
-    created: string;
-    technology: string;
-}
-
-const Block: React.FC<PropsType> = (props: PropsType) => {
+const Block: React.FC<ProjectType> = (props: ProjectType) => {
     const {ref, inView} = useInView({
         threshold: 0.5,
         triggerOnce: true,
@@ -28,13 +21,16 @@ const Block: React.FC<PropsType> = (props: PropsType) => {
             {inView ? (
                 <Link className={styles.block} href={`/portfolio/${props.id}`}>
                     <div>
-                        <img className={styles.img} src={props.img} alt="image"/>
+                        <img className={styles.img}
+                             src={`${process.env.NEXT_PUBLIC_API_URL}file-server/${props.paths[0].filename}`}
+                             alt="image"
+                        />
                     </div>
                     <div className={styles.info}>
                         <div>
                             <div className={styles.header}>
                                 <div className={styles.title}>{props.title}</div>
-                                <div className={styles.date}>{props.created}</div>
+                                <div className={styles.date}>{props.created_at}</div>
                             </div>
                             <div className={styles.description}>{props.description}</div>
                         </div>

@@ -1,61 +1,41 @@
 "use client";
 import React from "react";
 
+import {useAppDispatch} from '@/redux/store';
+import {useSelector} from 'react-redux';
+import {selectorProject} from "@/redux/project/selectors";
+import {fetchGet} from "@/redux/project/asyncActions/get";
+import {ProjectType} from "@/redux/project/types";
+
 import styles from "@/components/Portfolio/Portfolio.module.scss";
 
 import Empty from "@/components/Portfolio/Empty/Empty";
 import Block from "@/components/Portfolio/Block/Block";
 import Pagination from "@/instruments/Pagination/Pagination"
 
-type ProjectType = {
-    id: number;
-    title: string;
-    description: string;
-    img: string;
-    created: string;
-    technology: string;
-}
-
-const projects: ProjectType[] = [
-    {
-        id: 1,
-        title: 'Одностраничник (Langing Page)',
-        description: 'Сегодня состоялся долгожданной релиз Assassin`s Creed Mirage',
-        img: 'https://tanix.by/upload/%D0%91%D0%9B%D0%9E%D0%93.%20%D0%A1%D0%A2%D0%90%D0%A2%D0%AC%D0%98/landing-page_mesa_de_trabajo_1_0.png',
-        created: '05.10.23',
-        technology: "Golang + Fiber + PostgreSQL + Docker + migrations Goose + air"
-    },
-    {
-        id: 2,
-        title: 'Сайт (Miro)',
-        description: 'Сегодня состоялся долгожданной релиз Assassin`s Creed Mirage',
-        img: 'https://aspro.ru/upload/iblock/54e/1.jpg',
-        created: '05.10.23',
-        technology: "Python",
-    },
-    {
-        id: 3,
-        title: 'Телеграм бот (Tele bot)',
-        description: 'Сегодня состоялся долгожданной релиз Assassin`s Creed Mirage',
-        img: 'https://adminvps.ru/blog/wp-content/uploads/2020/07/pvylr1rn9ri2-3.jpeg',
-        created: '05.10.23',
-        technology: "JavaScript",
-    },
-]
-
 const Portfolio: React.FC = () => {
+    const dispatch = useAppDispatch()
+    const {status, projects, params} = useSelector(selectorProject)
+
     const [currentPage, setCurrentPage] = React.useState(1)
 
     const onChangePage = (page: number) => {
         try {
-            console.log("page:", page)
-            setCurrentPage((prevState: number) => prevState + 1)
+            setCurrentPage(page)
         } catch (error) {
             console.log("error in onChangePage:", error)
         }
     }
 
-    if (projects.length === 0) {
+    React.useEffect(() => {
+        const formData = {
+            page: currentPage,
+            limit: 5
+        }
+        dispatch(fetchGet(formData))
+    }, [currentPage])
+
+    if (projects.length === 0 && status === "completed") {
         return (
             <>
                 <Empty/>
@@ -74,6 +54,9 @@ const Portfolio: React.FC = () => {
             <div className={styles.pagination}>
                 <Pagination
                     currentPage={currentPage}
+                    pageCount={params.page_count}
+                    limit={params.limit}
+                    status={status}
                     onChangePage={onChangePage}
                 />
             </div>

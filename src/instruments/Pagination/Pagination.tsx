@@ -1,8 +1,5 @@
 import React from "react";
 
-import {useSelector} from 'react-redux';
-import {selectorReview} from "@/redux/review/selectors";
-
 import ReactPaginate from 'react-paginate';
 
 import styles from "@/instruments/Pagination/Pagination.module.scss"
@@ -10,14 +7,14 @@ import styles from "@/instruments/Pagination/Pagination.module.scss"
 import PaginationSkeleton from "@/instruments/Pagination/PaginationSkeleton/PaginationSkeleton";
 
 type PaginationProps = {
+    currentPage: number;
     pageCount: number;
     limit: number;
+    status: string;
     onChangePage: (page: number) => void;
 };
 
-const Pagination: React.FC<PaginationProps> = ({pageCount, limit, onChangePage}) => {
-    const {status} = useSelector(selectorReview)
-
+const Pagination: React.FC<PaginationProps> = ({currentPage, pageCount, limit, status, onChangePage}) => {
     return (
         <>
             {status === "loading" ? (
@@ -31,6 +28,7 @@ const Pagination: React.FC<PaginationProps> = ({pageCount, limit, onChangePage})
                     onPageChange={(event) => onChangePage(event.selected + 1)}
                     pageRangeDisplayed={2}
                     pageCount={Math.ceil(pageCount / limit)}
+                    forcePage={currentPage - 1}
                 />
             )}
         </>

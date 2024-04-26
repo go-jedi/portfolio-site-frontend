@@ -1,4 +1,4 @@
-export type Review = {
+export type ReviewType = {
     id: number;
     username: string;
     message: string;
@@ -20,7 +20,7 @@ export enum Status {
 
 export interface ReviewSliceState {
     status: Status;
-    reviews: Review[];
+    reviews: ReviewType[];
     params: Params;
 }
 
@@ -42,6 +42,6 @@ export type FetchGetDto = {
 
 export type FetchGetResponse = {
     message: string;
-    result: Review[];
+    result: ReviewType[];
     params: Params;
 }

@@ -2,20 +2,17 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 import {DateTime} from "luxon";
 
-import {FetchGetResponse, Review, ReviewSliceState, Status} from "@/redux/review/types"
+import {FetchGetResponse, Params, ReviewSliceState, ReviewType, Status} from "@/redux/review/types"
 
 import {fetchCreate} from "@/redux/review/asyncActions/create"
 import {fetchGet} from "@/redux/review/asyncActions/get"
 
 const initialState: ReviewSliceState = {
-    status: Status.LOADING,
-    reviews: [],
-    params: {
-        page_count: 1,
-        limit: 5,
-    },
+    status: Status.LOADING as Status,
+    reviews: [] as ReviewType[],
+    params: {} as Params,
 };
-
+ 
 const reviewSlice = createSlice({
     name: "review",
     initialState,
@@ -41,7 +38,7 @@ const reviewSlice = createSlice({
 
         builder.addCase(fetchGet.fulfilled, (state, action: PayloadAction<FetchGetResponse>) => {
             console.log("action.payload:", action.payload);
-            state.reviews = action.payload.result.filter((e: Review) => {
+            state.reviews = action.payload.result.filter((e: ReviewType) => {
                 e.created_at = DateTime.fromISO(e.created_at).toFormat("dd-MM-yyyy HH:mm");
                 e.updated_at = DateTime.fromISO(e.updated_at).toFormat("dd-MM-yyyy HH:mm");
 

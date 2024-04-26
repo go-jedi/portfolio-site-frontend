@@ -5,6 +5,7 @@ import {useAppDispatch} from '@/redux/store';
 import {useSelector} from 'react-redux';
 import {fetchGet} from "@/redux/review/asyncActions/get";
 import {selectorReview} from "@/redux/review/selectors";
+import {ReviewType} from "@/redux/review/types";
 
 import styles from "@/components/Review/Review.module.scss";
 
@@ -12,15 +13,6 @@ import Form from "@/components/Review/Form/Form";
 import Block from "@/components/Review/Block/Block";
 import Empty from "@/components/Review/Empty/Empty";
 import Pagination from "@/instruments/Pagination/Pagination"
-
-type ReviewsType = {
-    id: number;
-    username: string;
-    message: string;
-    rating: number;
-    created_at: string;
-    updated_at: string;
-};
 
 const Review: React.FC = () => {
     const dispatch = useAppDispatch()
@@ -66,13 +58,15 @@ const Review: React.FC = () => {
         <div className={styles.review}>
             <div className={styles.title}>Отзывы</div>
             <Form/>
-            {reviews.map((e: ReviewsType) => {
+            {reviews.map((e: ReviewType) => {
                 return <Block key={e.id} {...e} />;
             })}
             <div className={styles.pagination}>
                 <Pagination
+                    currentPage={currentPage}
                     pageCount={params.page_count}
                     limit={params.limit}
+                    status={status}
                     onChangePage={onChangePage}
                 />
             </div>

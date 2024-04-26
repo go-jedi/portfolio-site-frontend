@@ -1,23 +1,13 @@
-import $api from "@/http/index"
+import $api from "@/http/index";
+
+import {FetchGetDto} from "@/redux/project/types";
 
 export default class ProjectService {
-    static async create(dto: any) {
-        return await $api.post("project", dto)
+    static async get(dto: FetchGetDto) {
+        return await $api.get(`v1/project?page=${dto.page}&limit=${dto.limit}`)
     }
 
-    static async get() {
-        return await $api.get(`project?page=1&limit=5`)
-    }
-
-    static async getByID() {
-        return await $api.get(`project/1`)
-    }
-
-    static async update() {
-        return await $api.put("project")
-    }
-
-    static async delete() {
-        return await $api.delete(`project/1`)
+    static async getByID(id: number) {
+        return await $api.get(`v1/project/${id}`)
     }
 }

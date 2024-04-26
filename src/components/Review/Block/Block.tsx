@@ -1,6 +1,8 @@
 'use client';
 import React from 'react';
 
+import {ReviewType} from "@/redux/review/types";
+
 import {useInView} from 'react-intersection-observer';
 import {FaRegUser} from 'react-icons/fa6';
 
@@ -10,16 +12,7 @@ import styles from "@/components/Review/Block/Block.module.scss";
 
 import BlockSkeleton from "@/components/Review/Block/BlockSkeleton/BlockSkeleton";
 
-type PropsType = {
-    id: number;
-    username: string;
-    message: string;
-    rating: number;
-    created_at: string;
-    updated_at: string;
-};
-
-const Block: React.FC<PropsType> = (props: PropsType) => {
+const Block: React.FC<ReviewType> = (props: ReviewType) => {
     const {ref, inView} = useInView({
         threshold: 0.1,
         triggerOnce: true,

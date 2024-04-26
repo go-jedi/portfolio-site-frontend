@@ -4,18 +4,18 @@ import {FetchCreateDto, FetchGetDto} from "@/redux/review/types";
 
 export default class ReviewService {
     static async create(dto: FetchCreateDto) {
-        return await $api.post("review", dto)
+        return await $api.post("v1/review", dto)
     }
 
     static async get(dto: FetchGetDto) {
-        return await $api.get(`review?page=${dto.page}&limit=${dto.limit}`)
+        return await $api.get(`v1/review?page=${dto.page}&limit=${dto.limit}`)
     }
 
     static async getByID(id: number) {
-        return await $api.get(`review/${id}`)
+        return await $api.get(`v1/review/${id}`)
     }
 
     static async delete(id: number) {
-        return await $api.delete(`review/${id}`)
+        return await $api.delete(`v1/review/${id}`)
     }
 }

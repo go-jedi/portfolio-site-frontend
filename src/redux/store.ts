@@ -3,10 +3,12 @@ import type {TypedUseSelectorHook} from 'react-redux';
 import {useDispatch, useSelector} from 'react-redux';
 
 import review from "@/redux/review/slice"
+import project from "@/redux/project/slice";
 
 export const store = configureStore({
     reducer: {
         review,
+        project,
     },
 });
 
