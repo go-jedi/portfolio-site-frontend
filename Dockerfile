@@ -3,11 +3,12 @@ FROM node:alpine
 WORKDIR /github.com/go-jedi/portfolio/frontend/
 
 COPY . /github.com/go-jedi/portfolio/frontend/
+
 COPY .env.local /github.com/go-jedi/portfolio/frontend/
 
 RUN npm install
 RUN npm run build
 
-EXPOSE 50052
+EXPOSE 3000
 
-CMD ["npm", "run", "prod"]
+CMD ["npm", "run", "start"]
