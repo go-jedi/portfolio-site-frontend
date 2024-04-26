@@ -37,9 +37,10 @@ const Portfolio: React.FC = () => {
 
     if (projects.length === 0 && status === "completed") {
         return (
-            <>
+            <div className={styles.portfolio}>
+                <div className={styles.title}>Портфолио</div>
                 <Empty/>
-            </>
+            </div>
         )
     }
 

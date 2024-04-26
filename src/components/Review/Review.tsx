@@ -20,7 +20,7 @@ const Review: React.FC = () => {
 
     const [currentPage, setCurrentPage] = React.useState(1)
 
-    const onChangePage = (page: number) => {
+    const onChangePage = (page: number):void => {
         try {
             setCurrentPage(page)
         } catch (error) {

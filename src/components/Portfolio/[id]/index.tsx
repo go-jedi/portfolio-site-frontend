@@ -32,7 +32,7 @@ const PortfolioId: React.FC<PropsType> = (props: PropsType) => {
         dispatch(fetchGetByID(Number(props.id)))
     }, [])
 
-    if (status === "loading") {
+    if (Object.keys(project).length === 0) {
         return (
             <div className={styles.portfolioid}>
                 <BackSkeleton/>
