@@ -13,8 +13,14 @@ const Contact: React.FC = () => {
             </div>
             <div className={styles.text}>
                 Если вы хотите узнать больше о том, как мы можем помочь
-                вам достичь ваших целей, пожалуйста, свяжитесь с нами по
-                <a className={styles.link} target="_blank" href="https://google.com">Telegram</a>.
+                вам достичь ваших целей, пожалуйста, свяжитесь с нами через
+                <a
+                    className={styles.link}
+                    target="_blank"
+                    href={process.env.NEXT_PUBLIC_TG_LINK}
+                >
+                    Telegram бот
+                </a>.
                 Мы с нетерпением ждем возможности работать с вами!
             </div>
         </div>

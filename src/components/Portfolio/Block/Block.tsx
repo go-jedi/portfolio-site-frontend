@@ -2,16 +2,16 @@
 import React from "react";
 import Link from 'next/link';
 
-import {ProjectType} from "@/redux/project/types";
+import { ProjectType } from "@/redux/project/types";
 
-import {useInView} from 'react-intersection-observer';
+import { useInView } from 'react-intersection-observer';
 
 import styles from "@/components/Portfolio/Block/Block.module.scss";
 
 import BlockSkeleton from "@/components/Portfolio/Block/BlockSkeleton/BlockSkeleton";
 
 const Block: React.FC<ProjectType> = (props: ProjectType) => {
-    const {ref, inView} = useInView({
+    const { ref, inView } = useInView({
         threshold: 0.5,
         triggerOnce: true,
     });
@@ -22,8 +22,8 @@ const Block: React.FC<ProjectType> = (props: ProjectType) => {
                 <Link className={styles.block} href={`/portfolio/${props.id}`}>
                     <div>
                         <img className={styles.img}
-                             src={`${process.env.NEXT_PUBLIC_API_URL}file-server/${props.paths[0].filename}`}
-                             alt="image"
+                            src={`${process.env.NEXT_PUBLIC_API_URL}file-server/${props.paths[0].filename}`}
+                            alt="image"
                         />
                     </div>
                     <div className={styles.info}>
@@ -41,7 +41,7 @@ const Block: React.FC<ProjectType> = (props: ProjectType) => {
                     </div>
                 </Link>
             ) : (
-                <BlockSkeleton/>
+                <BlockSkeleton />
             )}
         </div>
     )

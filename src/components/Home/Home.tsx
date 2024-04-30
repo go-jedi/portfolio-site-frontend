@@ -11,11 +11,11 @@ import Deal from "@/components/Home/Deal/Deal"
 const Home: React.FC = () => {
     return (
         <div className={styles.home}>
-            <Introduce/>
-            <Welcome/>
-            <Technology/>
-            <Price/>
-            <Deal/>
+            <Introduce />
+            <Welcome />
+            <Technology />
+            <Price />
+            <Deal />
         </div>
     )
 }
