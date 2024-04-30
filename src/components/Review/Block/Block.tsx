@@ -1,19 +1,19 @@
 'use client';
 import React from 'react';
 
-import {ReviewType} from "@/redux/review/types";
+import { ReviewType } from "@/redux/review/types";
 
-import {useInView} from 'react-intersection-observer';
-import {FaRegUser} from 'react-icons/fa6';
+import { useInView } from 'react-intersection-observer';
+import { FaRegUser } from 'react-icons/fa6';
 
-import {FaStar} from 'react-icons/fa';
+import { FaStar } from 'react-icons/fa';
 
 import styles from "@/components/Review/Block/Block.module.scss";
 
 import BlockSkeleton from "@/components/Review/Block/BlockSkeleton/BlockSkeleton";
 
 const Block: React.FC<ReviewType> = (props: ReviewType) => {
-    const {ref, inView} = useInView({
+    const { ref, inView } = useInView({
         threshold: 0.1,
         triggerOnce: true,
     });
@@ -24,11 +24,11 @@ const Block: React.FC<ReviewType> = (props: ReviewType) => {
                 <div className={styles.block}>
                     <div className={styles.person}>
                         <div className={styles.logo}>
-                            <FaRegUser className={styles.icon}/>
+                            <FaRegUser className={styles.icon} />
                         </div>
                         <div className={styles.info}>
                             <div className={styles.title}>
-                                {props.username}
+                                {props.username.length > 0 ? props.username : 'Пользователь с Telegram'}
                             </div>
                             <div className={styles.text}>{props.message}</div>
                         </div>
@@ -49,7 +49,7 @@ const Block: React.FC<ReviewType> = (props: ReviewType) => {
                     </div>
                 </div>
             ) : (
-                <BlockSkeleton/>
+                <BlockSkeleton />
             )}
         </div>
     );
