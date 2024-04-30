@@ -28,6 +28,7 @@ const Hamburger: React.FC = () => {
         try {
             setIsOpen(false)
             setIsChecked(false)
+            document.body.style.overflow = "auto";
         } catch (error) {
             console.log("error in handleCloseHamburger:", error)
         }
