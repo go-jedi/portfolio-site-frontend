@@ -5,6 +5,10 @@ import {usePathname} from 'next/navigation'
 
 import styles from "@/components/Header/Hamburger/Menu/Menu.module.scss";
 
+type MenuProps = {
+    handleCloseHamburger: () => void;
+}
+
 type LinksType = {
     id: number;
     name: string;
@@ -34,7 +38,7 @@ const links: LinksType[] = [
     }
 ]
 
-const Menu: React.FC = () => {
+const Menu: React.FC<MenuProps> = (props: MenuProps) => {
     const pathname: string = usePathname()
 
     return (
@@ -46,6 +50,7 @@ const Menu: React.FC = () => {
                     <li className={styles.item} key={e.id}>
                         <Link
                             className={styles.link}
+                            onClick={props.handleCloseHamburger}
                             style={{color: pathname === e.link ? '#4385d7' : ''}}
                             key={e.id}
                             href={`${e.link}`}
