@@ -12,7 +12,7 @@ const initialState: ReviewSliceState = {
     reviews: [] as ReviewType[],
     params: {} as Params,
 };
- 
+
 const reviewSlice = createSlice({
     name: "review",
     initialState,
@@ -23,7 +23,6 @@ const reviewSlice = createSlice({
         });
 
         builder.addCase(fetchCreate.fulfilled, (state, action) => {
-            console.log("action.payload:", action.payload)
             state.status = Status.SUCCESS;
         });
 
@@ -37,10 +36,9 @@ const reviewSlice = createSlice({
         });
 
         builder.addCase(fetchGet.fulfilled, (state, action: PayloadAction<FetchGetResponse>) => {
-            console.log("action.payload:", action.payload);
             state.reviews = action.payload.result.filter((e: ReviewType) => {
-                e.created_at = DateTime.fromISO(e.created_at).toFormat("dd-MM-yyyy HH:mm");
-                e.updated_at = DateTime.fromISO(e.updated_at).toFormat("dd-MM-yyyy HH:mm");
+                e.created_at = DateTime.fromISO(e.created_at).toFormat("dd-MM-yyyy");
+                e.updated_at = DateTime.fromISO(e.updated_at).toFormat("dd-MM-yyyy");
 
                 return e;
             });

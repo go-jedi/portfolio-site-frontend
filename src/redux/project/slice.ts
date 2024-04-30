@@ -32,10 +32,9 @@ const projectSlice = createSlice({
         })
 
         builder.addCase(fetchGet.fulfilled, (state, action: PayloadAction<FetchGetResponse>) => {
-            console.log("action.payload:", action.payload)
             state.projects = action.payload.result.filter((e: ProjectType) => {
-                e.created_at = DateTime.fromISO(e.created_at).toFormat("dd-MM-yyyy HH:mm");
-                e.updated_at = DateTime.fromISO(e.updated_at).toFormat("dd-MM-yyyy HH:mm");
+                e.created_at = DateTime.fromISO(e.created_at).toFormat("dd-MM-yyyy");
+                e.updated_at = DateTime.fromISO(e.updated_at).toFormat("dd-MM-yyyy");
 
                 return e;
             });
@@ -54,10 +53,9 @@ const projectSlice = createSlice({
         })
 
         builder.addCase(fetchGetByID.fulfilled, (state, action: PayloadAction<FetchGetByIdResponse>) => {
-            console.log("action.payload:", action.payload);
             state.project = action.payload.result;
-            state.project.created_at = DateTime.fromISO(state.project.created_at).toFormat("dd-MM-yyyy HH:mm");
-            state.project.updated_at = DateTime.fromISO(state.project.updated_at).toFormat("dd-MM-yyyy HH:mm");
+            state.project.created_at = DateTime.fromISO(state.project.created_at).toFormat("dd-MM-yyyy");
+            state.project.updated_at = DateTime.fromISO(state.project.updated_at).toFormat("dd-MM-yyyy");
             state.status = Status.SUCCESS;
         })
 
